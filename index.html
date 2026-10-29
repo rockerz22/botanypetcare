@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOTANY PET CARE</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0b2c49;--blue:#0864b5;
+  --green:#36a852;--bg:#f3f7fb;
+}
+body{
+  font-family:Tahoma,Arial,sans-serif;
+  background:var(--bg);color:#183652;
+}
+a{text-decoration:none;color:inherit}
+header{
+  background:white;padding:15px 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;flex-wrap:wrap;box-shadow:0 2px 12px #102f4810;
+}
+.logo{display:flex;align-items:center;gap:10px}
+.logo svg{width:50px;height:50px}
+.logo strong{font-size:22px;color:var(--navy);letter-spacing:1px}
+.logo small{display:block;color:var(--green);letter-spacing:3px}
+nav{display:flex;gap:23px;flex-wrap:wrap}
+nav a{font-size:14px;font-weight:bold}
+nav a:hover{color:var(--blue)}
+button{cursor:pointer;border:0;border-radius:8px;padding:12px 18px;font-weight:bold}
+.login-btn{background:var(--navy);color:white}
+.hero{
+  padding:55px 6%;min-height:490px;color:white;
+  display:grid;grid-template-columns:1.4fr .8fr;
+  align-items:center;gap:35px;
+  background:linear-gradient(90deg,#061e2df5,#07354bce),
+  url('https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1800&q=85') center/cover;
+}
+.hero h1{font-size:clamp(28px,4vw,46px);margin:20px 0}
+.hero p{line-height:1.9;color:#e0edf4;font-size:17px}
+.tag{color:#8de09c;font-weight:bold;letter-spacing:2px}
+.points{display:flex;gap:20px;flex-wrap:wrap;margin-top:30px}
+.points span{border:1px solid #6abf87;padding:10px;border-radius:8px;font-size:13px}
+.card{
+  background:white;color:var(--navy);padding:28px;
+  border-radius:15px;box-shadow:0 15px 40px #0003;
+  max-width:390px;width:100%;justify-self:end;
+}
+.card h2{margin:15px 0 8px}
+.card p{font-size:13px;color:#718398;margin-bottom:20px}
+label{display:block;font-size:13px;margin:12px 0 7px}
+input[type=text],input[type=password],input[type=email]{
+  width:100%;padding:13px;border:1px solid #d4e0eb;
+  border-radius:7px;font-size:14px;
+}
+.options{display:flex;justify-content:space-between;align-items:center;margin:15px 0;font-size:12px}
+.options a{color:var(--blue)}
+.submit{width:100%;background:var(--blue);color:white;margin-top:5px}
+.google{width:100%;margin-top:15px;background:white;border:1px solid #d4e0eb;color:#24435f}
+.message{display:none;background:#eaf7ee;color:#21783a;padding:12px;border-radius:7px;margin-top:12px;font-size:13px;line-height:1.6}
+section.services{padding:40px 6%}
+h2.title{font-size:28px;color:var(--navy);margin-bottom:10px}
+.subtitle{color:#708398;margin-bottom:25px;line-height:1.8}
+.layout{display:grid;grid-template-columns:1.8fr 1fr;gap:20px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.service{
+  background:white;padding:20px 16px;border-radius:10px;
+  box-shadow:0 4px 15px #12304b08;transition:.2s;
+}
+.service:hover{transform:translateY(-4px);box-shadow:0 8px 22px #12304b15}
+.icon{font-size:30px;margin-bottom:15px}
+.service h3{font-size:15px;margin-bottom:10px}
+.service p{font-size:12px;line-height:1.8;color:#718398;margin-bottom:12px}
+.service a{font-size:12px;color:var(--blue);font-weight:bold}
+.promo{
+  border-radius:12px;padding:25px;min-height:220px;color:white;
+  display:flex;flex-direction:column;justify-content:end;
+  background:linear-gradient(0deg,#052a40ee,transparent),
+  url('https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=900&q=85') center/cover;
+}
+.promo h2{font-size:28px;margin:8px 0}
+.promo p{font-size:13px;line-height:1.8}
+footer{background:var(--navy);color:#dce9f2;padding:28px 6%}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:25px;flex-wrap:wrap}
+footer p{font-size:12px;line-height:2}
+footer .logo strong{color:white}
+footer .logo small{color:#7bd98d}
+.notice{text-align:center;font-size:11px;margin-top:22px;color:#a9bdce}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .card{justify-self:stretch;max-width:500px}
+  .layout{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  header{padding:14px 18px}
+  nav{width:100%;gap:15px}
+  nav a{font-size:12px}
+  .hero{padding:35px 20px}
+  .hero p{font-size:15px}
+  .points{gap:8px}
+  .points span{font-size:11px}
+  section.services{padding:30px 18px}
+  h2.title{font-size:23px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .service{padding:15px 12px}
+  .service h3{font-size:13px}
+  .promo{min-height:200px}
+  .footer-inner{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:350px){
+  .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="#home">
+    <svg viewBox="0 0 100 100" aria-label="Botany Logo">
+      <path d="M48 90C10 68 7 38 20 18c18 9 29 28 30 47C52 39 65 15 84 7c10 34-5 66-36 83Z" fill="#36a852"/>
+      <path d="M48 90C42 59 58 29 84 7c11 36-7 70-36 83Z" fill="#0864b5"/>
+      <path d="M33 73L23 42M49 62L72 23" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </svg>
+    <strong>BOTANY<small>PET CARE</small></strong>
+  </a>
+
+  <nav>
+    <a href="#home">หน้าแรก</a>
+    <a href="#about">เกี่ยวกับเรา</a>
+    <a href="#services">บริการของเรา</a>
+    <a href="#news">ข่าวสาร</a>
+    <a href="#contact">ติดต่อเรา</a>
+  </nav>
+
+  <button class="login-btn" onclick="document.getElementById('username').focus()">เข้าสู่ระบบ</button>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div id="about">
+    <div class="tag">QUALITY • CARE • TRUST</div>
+    <h1>BOTANY PET CARE<br>เพราะทุกมื้อ...คือความใส่ใจ</h1>
+    <p>เรามุ่งมั่นผลิตอาหารสัตว์เลี้ยงคุณภาพ<br>
+    สำหรับสุนัขและแมว ด้วยความใส่ใจในทุกขั้นตอน</p>
+
+    <div class="points">
+      <span>✓ คุณภาพมาตรฐาน</span>
+      <span>♧ วัตถุดิบคัดสรร</span>
+      <span>▦ โรงงานทันสมัย</span>
+      <span>♡ ใส่ใจสัตว์เลี้ยง</span>
+    </div>
+  </div>
+
+  <form class="card" id="loginForm">
+    <div class="logo">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M48 90C10 68 7 38 20 18c18 9 29 28 30 47C52 39 65 15 84 7c10 34-5 66-36 83Z" fill="#36a852"/>
+        <path d="M48 90C42 59 58 29 84 7c11 36-7 70-36 83Z" fill="#0864b5"/>
+      </svg>
+      <strong>BOTANY<small>PET CARE</small></strong>
+    </div>
+
+    <h2>ยินดีต้อนรับ</h2>
+    <p>เข้าสู่ระบบเพื่อใช้งาน</p>
+
+    <label for="username">ชื่อผู้ใช้ / อีเมล</label>
+    <input id="username" type="text" placeholder="กรอกชื่อผู้ใช้หรืออีเมล" required>
+
+    <label for="password">รหัสผ่าน</label>
+    <input id="password" type="password" placeholder="กรอกรหัสผ่าน" required>
+
+    <div class="options">
+      <label><input type="checkbox"> จดจำฉันไว้</label>
+      <a href="#contact">ลืมรหัสผ่าน?</a>
+    </div>
+
+    <button class="submit" type="submit">เข้าสู่ระบบ</button>
+    <div class="message" id="message"></div>
+    <button class="google" type="button" id="google">G &nbsp; เข้าสู่ระบบด้วย Google</button>
+  </form>
+</section>
+
+<section class="services" id="services">
+  <h2 class="title">ระบบสำหรับพนักงาน</h2>
+  <p class="subtitle">รวมบริการและข้อมูลที่จำเป็น เพื่อให้การทำงานสะดวก รวดเร็ว และปลอดภัย</p>
+
+  <div class="layout">
+    <div class="grid">
+      <article class="service">
+        <div class="icon">🛠️</div>
+        <h3>แจ้งซ่อม / แจ้งปัญหา</h3>
+        <p>แจ้งปัญหาคอมพิวเตอร์และอุปกรณ์สำนักงาน</p>
+        <a href="mailto:it@example.com?subject=แจ้งปัญหา IT">แจ้งปัญหา →</a>
+      </article>
+
+      <article class="service">
+        <div class="icon">📅</div>
+        <h3>ตารางงาน</h3>
+        <p>ตรวจสอบตารางงานและประกาศภายในบริษัท</p>
+        <a href="#news">ดูข้อมูล →</a>
+      </article>
+
+      <article class="service">
+        <div class="icon">📄</div>
+        <h3>เอกสาร / แบบฟอร์ม</h3>
+        <p>รวมเอกสารและแบบฟอร์มที่จำเป็น</p>
+        <a href="#contact">ดูรายละเอียด →</a>
+      </article>
+
+      <article class="service">
+        <div class="icon">👥</div>
+        <h3>ข้อมูลพนักงาน</h3>
+        <p>ช่องทางติดต่อฝ่ายบุคคลและข้อมูลพนักงาน</p>
+        <a href="#contact">ติดต่อ HR →</a>
+      </article>
+    </div>
+
+    <aside class="promo" id="news">
+      <div>BOTANY PET CARE</div>
+      <h2>Better Food<br>Happier Pets</h2>
+      <p>ใส่ใจคุณภาพในทุกขั้นตอน เพื่อสัตว์เลี้ยงที่คุณรัก</p>
+    </aside>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <a class="logo" href="#home">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M48 90C10 68 7 38 20 18c18 9 29 28 30 47C52 39 65 15 84 7c10 34-5 66-36 83Z" fill="#36a852"/>
+        <path d="M48 90C42 59 58 29 84 7c11 36-7 70-36 83Z" fill="#0864b5"/>
+      </svg>
+      <strong>BOTANY<small>PET CARE</small></strong>
+    </a>
+
+    <p>
+      <strong>บริษัท โบทานี เพ็ทแคร์ จำกัด</strong><br>
+      นิคมอุตสาหกรรมราชบุรี จังหวัดราชบุรี<br>
+      ติดต่อบริษัทเพื่อยืนยันข้อมูลที่อยู่และเบอร์โทรล่าสุด
+    </p>
+
+    <p>ติดต่อเรา<br>Facebook • Email</p>
+  </div>
+  <div class="notice">© 2026 BOTANY PET CARE — เว็บไซต์ตัวอย่างสำหรับพัฒนา</div>
+</footer>
+
+<script>
+const form = document.getElementById('loginForm');
+const message = document.getElementById('message');
+
+function showMessage(text) {
+  message.style.display = 'block';
+  message.textContent = text;
+}
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+  showMessage('นี่คือหน้าเว็บตัวอย่าง ยังไม่ได้เชื่อมต่อระบบบัญชีผู้ใช้จริง');
+});
+
+document.getElementById('google').addEventListener('click', function() {
+  showMessage('ต้องตั้งค่า Google Sign-In ก่อนจึงจะเข้าสู่ระบบด้วย Google ได้');
+});
+</script>
+
+</body>
+</html>
